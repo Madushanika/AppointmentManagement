@@ -36,8 +36,8 @@ public class Appointment {//DB connection----------------------------
 				}
 				// Prepare the html table to be displayed
 				output = "<table border='1'><tr>"
-						+ "<th>Doctor_ID</th>"
-						+ "<th>Hospital_ID</th>"
+						+ "<th>Doctor_Name</th>"
+						+ "<th>Hospital_Name</th>"
 						+ "<th>Chargers</th>"
 						+ "<th>Appointment Date</th>"
 						+ "<th>Start_Time</th>"
@@ -53,8 +53,8 @@ public class Appointment {//DB connection----------------------------
 				while (rs.next()){
 					
 					String Shedule_ID 		= Integer.toString(rs.getInt("Shedule_ID"));
-					String Doctor_ID 	= rs.getString("Doctor_ID");
-					String Hospital_ID 	= rs.getString("Hospital_ID");
+					String Doctor_Name 	= rs.getString("Doctor_Name");
+					String Hospital_Name 	= rs.getString("Hospital_Name");
 					String Chargers 		= rs.getString("Chargers");
 					String Date 	= rs.getString("Date");
 					String Start_Time 		= rs.getString("Start_Time");
@@ -62,8 +62,8 @@ public class Appointment {//DB connection----------------------------
 					
 					//Add into the html table
 					
-					output += "<tr><td><input id='hidAppointmentIDUpdate' name='hidAppointmentIDUpdate' type='hidden' value='" + Shedule_ID + "'>" + Doctor_ID + "</td>";
-					output += "<td>" + Hospital_ID + "</td>";
+					output += "<tr><td><input id='hidAppointmentIDUpdate' name='hidAppointmentIDUpdate' type='hidden' value='" + Shedule_ID + "'>" + Doctor_Name + "</td>";
+					output += "<td>" + Hospital_Name + "</td>";
 					output += "<td>" + Chargers + "</td>";
 					output += "<td>" + Date + "</td>";
 					output += "<td>" + Start_Time + "</td>";
@@ -90,7 +90,7 @@ public class Appointment {//DB connection----------------------------
 		
 		
 		//insert-------------------------------------------------------------------------------------------------------------------------
-		public String insertAppointment(String Doctor_ID, String Hospital_ID, String Chargers, String Date,String Start_Time,String End_Time)
+		public String insertAppointment(String Doctor_Name, String Hospital_Name, String Chargers, String Date,String Start_Time,String End_Time)
 		{
 			String output = "";
 			try
@@ -103,14 +103,14 @@ public class Appointment {//DB connection----------------------------
 				}
 				
 				// create a prepared statement
-				String query = " insert into `schedule`(`Shedule_ID`, `Doctor_ID`, `Hospital_ID`, `Chargers`, `Date`,`Start_Time`, `End_Time`)  values (?, ?, ?, ?, ?, ?, ?)";
+				String query = " insert into `schedule`(`Shedule_ID`, `Doctor_Name`, `Hospital_Name`, `Chargers`, `Date`,`Start_Time`, `End_Time`)  values (?, ?, ?, ?, ?, ?, ?)";
 				
 				PreparedStatement preparedStmt = con.prepareStatement(query);
 				
 				// binding values
 				preparedStmt.setInt(1, 0);
-				preparedStmt.setString(2, Doctor_ID);
-				preparedStmt.setString(3, Hospital_ID);
+				preparedStmt.setString(2, Doctor_Name);
+				preparedStmt.setString(3, Hospital_Name);
 				preparedStmt.setDouble(4, Double.parseDouble(Chargers));
 				preparedStmt.setString(5, Date);
 				preparedStmt.setString(6, Start_Time);
@@ -136,7 +136,7 @@ public class Appointment {//DB connection----------------------------
 		
 		
 		//update----------------------------------------------------------------------------------------------------------------
-		public String updateAppointment(String Shedule_ID, String Doctor_ID, String Hospital_ID, String Chargers, String Date,String Start_Time,String End_Time)
+		public String updateAppointment(String Shedule_ID, String Doctor_Name, String Hospital_Name, String Chargers, String Date,String Start_Time,String End_Time)
 		{
 			String output = "";
 			
@@ -150,12 +150,12 @@ public class Appointment {//DB connection----------------------------
 				}
 				
 				// create a prepared statement
-				String query = "UPDATE schedule SET Doctor_ID=?,Hospital_ID=?,Chargers=?,Date=?,Start_Time=?,End_Time=? WHERE Shedule_ID=?";
+				String query = "UPDATE schedule SET Doctor_Name=?,Hospital_Name=?,Chargers=?,Date=?,Start_Time=?,End_Time=? WHERE Shedule_ID=?";
 				PreparedStatement preparedStmt = con.prepareStatement(query);
 				
 				// binding values
-				preparedStmt.setString(1, Doctor_ID);
-				preparedStmt.setString(2, Hospital_ID);
+				preparedStmt.setString(1, Doctor_Name);
+				preparedStmt.setString(2, Hospital_Name);
 				preparedStmt.setDouble(3, Double.parseDouble(Chargers));
 				preparedStmt.setString(4, Date);
 				preparedStmt.setString(5, Start_Time);

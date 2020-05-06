@@ -94,8 +94,8 @@ function onAppointmentSaveComplete(response, status)
 $(document).on("click", ".btnUpdate", function(event)
 {
 	$("#hidAppointmentIDSave").val($(this).closest("tr").find('#hidAppointmentIDUpdate').val());
-	$("#Doctor_ID").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#Hospital_ID").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#Doctor_Name").val($(this).closest("tr").find('td:eq(0)').text());
+	$("#Hospital_Name").val($(this).closest("tr").find('td:eq(1)').text());
 	$("#Chargers").val($(this).closest("tr").find('td:eq(2)').text());
 	$("#Date").val($(this).closest("tr").find('td:eq(3)').text());
 	$("#Start_Time").val($(this).closest("tr").find('td:eq(4)').text());
@@ -153,20 +153,21 @@ function onAppointmentDeleteComplete(response, status)
 function validateAppointmentForm()
 {
 	
-	// USERNAME
-	if ($("#Doctor_ID").val().trim() == "")
+	// Doctor_Name
+	if ($("#Doctor_Name").val().trim() == "")
 	{
-		return "Insert Doctor_ID.";
+		return "Insert Doctor Name.";
 	}
 	
-	//ADDRESS
-	if ($("#Hospital_ID").val().trim() == "")
+
+	//Hospital_Name
+	if ($("#Hospital_Name").val().trim() == "")
 	{
-		return "Insert Hospital_ID.";
+		return "Insert Hospital Name.";
 	}
 	
 	
-	//MOBILENO-------------------------------
+	//Chargers-------------------------------
 	if ($("#Chargers").val().trim() == "")
 	{
 		return "Insert Chargers.";
@@ -179,23 +180,25 @@ function validateAppointmentForm()
 		return "Insert numerical value for Chargers.";
 	}
 	
-	//EMAIL
+	//Date
 	if ($("#Date").val().trim() == "")
 	{
 		return "Insert E-mail Date.";
 	}
 	
-	//PASSWORD
+	//Start_Time
 	if ($("#Start_Time").val().trim() == "")
 	{
 		return "Insert Valid StartTime.";
 	}
 	
-	//PASSWORD
+	//End_Time
 	if ($("#End_Time").val().trim() == "")
 	{
 		return "Insert Valid EndTime.";
 	}
+	
+	
 	
 	return true;
 }

@@ -30,12 +30,12 @@
 			
 			<form id="formAppointment" name="formAppointment" method="post" action="index.jsp">
 
-				Doctor_ID:
-				<input id="Doctor_ID" name="Doctor_ID" type="text" class="form-control form-control-sm">
+				Doctor Name:
+				<input id="Doctor_Name" name="Doctor_Name" type="text" class="form-control form-control-sm">
 				<br>
 				 
-				Hospital_ID:
-				<input id="Hospital_ID" name="Hospital_ID" type="text" class="form-control form-control-sm">
+				Hospital Name:
+				<input id="Hospital_Name" name="Hospital_Name" type="text" class="form-control form-control-sm">
 				<br>
 				
 				Chargers:

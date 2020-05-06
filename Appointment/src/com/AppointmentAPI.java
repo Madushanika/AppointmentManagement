@@ -42,8 +42,8 @@ public class AppointmentAPI extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String output = AppointmentObj.insertAppointment
-				(request.getParameter("Doctor_ID"),
-				request.getParameter("Hospital_ID"),
+				(request.getParameter("Doctor_Name"),
+				request.getParameter("Hospital_Name"),
 				request.getParameter("Chargers"),
 				request.getParameter("Date"),
 				request.getParameter("Start_Time"),
@@ -60,8 +60,8 @@ public class AppointmentAPI extends HttpServlet {
 		Map paras = getParasMap(request);
 		
 		String output = AppointmentObj.updateAppointment(paras.get("hidAppointmentIDSave").toString(),
-						paras.get("Doctor_ID").toString(),
-						paras.get("Hospital_ID").toString(),
+						paras.get("Doctor_Name").toString(),
+						paras.get("Hospital_Name").toString(),
 						paras.get("Chargers").toString(),
 						paras.get("Date").toString(),
 						paras.get("Start_Time").toString(),
